@@ -17,7 +17,7 @@ app.get('/api/developers', jwtCheck, jwtAuthz(['apname.read']), (req, res) => {
         {id: 2, firstName: 'Younes', lastName: 'Hlalem'}
     ]
 
-    res.json(developers);
+    res.jsonp(developers);
 });
 
 //Test endpoint
