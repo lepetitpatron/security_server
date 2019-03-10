@@ -20,4 +20,4 @@ app.get('/api/developers', jwtCheck, jwtAuthz(['apname.read']), (req, res) => {
     res.json(developers);
 });
 
-app.listen(port, () => console.log('Server started on port ' + port));
+app.listen(port);
