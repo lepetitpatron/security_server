@@ -4,11 +4,6 @@ const jwtAuthz = require('express-jwt-authz');
 const app = express();
 const port = 5000;
 
-//Respond with JSONP
-app.configure(function() {
-    app.set('jsonp callback', true);
-  });
-
 var jwtCheck = jwt({
     secret: 'OGD30o4u24INhy8bkUmepXP1iL0eGA61',
     audience: 'developers',
@@ -22,7 +17,7 @@ app.get('/api/developers', jwtCheck, jwtAuthz(['apname.read']), (req, res) => {
         {id: 2, firstName: 'Younes', lastName: 'Hlalem'}
     ]
 
-    res.jsonp(developers);
+    res.json(developers);
 });
 
 //Test endpoint
