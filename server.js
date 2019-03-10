@@ -1,6 +1,7 @@
 const express = require('express');
 const jwt = require('express-jwt');
 const jwtAuthz = require('express-jwt-authz');
+const cors = require('cors');
 const app = express();
 const port = 5000;
 
@@ -11,7 +12,7 @@ var jwtCheck = jwt({
 });
 
 //Private endpoint
-app.get('/api/developers', jwtCheck, jwtAuthz(['apname.read']), (req, res) => {
+app.get('/api/developers', cors(), jwtCheck, jwtAuthz(['apname.read']), (req, res) => {
     const developers = [
         {id: 1, firstName: 'Hamza', lastName: 'Menouny'},
         {id: 2, firstName: 'Younes', lastName: 'Hlalem'}
