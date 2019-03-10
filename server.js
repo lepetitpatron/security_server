@@ -21,7 +21,7 @@ app.get('/api/developers', jwtCheck, jwtAuthz(['apname.read']), (req, res) => {
 });
 
 //Test endpoint
-app.get('/api/test', (req,res) => {
+app.get('/', (req,res) => {
     res.send('Hello there!');
 });
 
