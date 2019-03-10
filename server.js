@@ -2,6 +2,7 @@ const express = require('express');
 const jwt = require('express-jwt');
 const jwtAuthz = require('express-jwt-authz');
 const app = express();
+const port = 5000;
 
 var jwtCheck = jwt({
     secret: 'OGD30o4u24INhy8bkUmepXP1iL0eGA61',
@@ -23,3 +24,5 @@ app.get('/api/developers', jwtCheck, jwtAuthz(['apname.read']), (req, res) => {
 app.get('/', (req,res) => {
     res.send('Hello there!');
 });
+
+app.listen(process.env.PORT || port);
